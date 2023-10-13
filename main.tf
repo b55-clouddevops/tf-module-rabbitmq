@@ -1,6 +1,6 @@
 # Creates EC2 SPOT Instance
 resource "aws_spot_instance_request" "allows_rabbitmq" {
-  ami                        = data.aws_ami.image.id
+  ami                        = data.aws_ami.ami.id
   subnet_id                  = data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET_IDS[0]                   
   instance_type              = var.RABBITMQ_INSTANCE_TYPE
   vpc_security_group_ids     = [aws_security_group.allows_rabbitmq.id]
